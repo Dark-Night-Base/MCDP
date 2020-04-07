@@ -13,10 +13,12 @@ def onServerInfo(server, info):
 def on_info(server, info):
   if info.content.startswith('!!day set'):
     try:
-      newstartstr = re.match(r'!!day set (\S*)').groups()[0]
+      newstartstr = re.match(r'!!day set (\S*)', info.content).groups()[0]
       newstartday = datetime.datetime.strptime(newstartstr, '%Y-%m-%d')
     except:
       server.reply(info, '§cPlease enter start day as yyyy-mm-dd')
+    else:
+      server.reply(info, '§7Start day set as %s' % newstartdaystr)
   else:
     info2 = copy.deepcopy(info)
     info2.isPlayer = info2.is_player
