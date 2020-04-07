@@ -87,8 +87,7 @@ def on_info(server, info):
             else:
                 if plugin in pluginlist:
                     if copy_plugin(plugin):
-                        text = '§aPlugin %s installed successfully!' % plugin
-                        server.execute('!!MCDR reload plugin')
+                        text = '§aPlugin %s installed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s installed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -105,8 +104,7 @@ def on_info(server, info):
             else:
                 if plugin in pluginlist:
                     if remove_plugin(plugin):
-                        text = '§aPlugin %s removed successfully!' % plugin
-                        server.execute('!!MCDR reload plugin')
+                        text = '§aPlugin %s removed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s removed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -126,8 +124,7 @@ def on_info(server, info):
             for plugin in pluginlist:
                 if plugin.endswith('.py'):
                     copy_plugin(plugin)
-            server.say('§7Plugins upgraded.')
-            server.execute('!!MCDR reload plugin')
+            server.say('§7Plugins upgraded. Run §r!!MCDR reload plugin§7 to reload')
         else:
             text = '§7!!MCDP§r: Show this message\n'
             text += '§7!!MCDP list§r: List the plugins\n'
