@@ -119,8 +119,8 @@ def on_info(server, info):
             fetchinfo = repo.remote().pull()[0]
             committime = fetchinfo.commit.authored_datetime.strftime(
                 '%b %d %H:%M')
-            server.reply(info, '§7Updated\n. Last commit at' +
-                         committime + '\n:' + fetchinfo.commit.message)
+            server.reply(info, '§7Updated. Last commit at' +
+                         committime + ':\n' + fetchinfo.commit.message)
         elif info.content == '!!MCDP upgrade':
             pluginlist = os.listdir(path)
             for plugin in pluginlist:
