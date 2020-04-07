@@ -10,7 +10,7 @@ def on_load(server, old_module):
     global startday
     pluginconfig = config.Config(constant.CONFIG_FILE)
     pluginconfig.read_config()
-    startday = datetime.datetime.strptime(pluginconfig['startday'], '%Y-%m-%d')
+    startday = datetime.datetime.strptime(str(pluginconfig['startday']), '%Y-%m-%d')
 
 
 def on_info(server, info):
