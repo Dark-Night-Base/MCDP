@@ -24,7 +24,7 @@ def on_info(server, info):
     else:
       startday = newstartday
       server.reply(info, '§7Start day set as %s' % newstartstr)
-  elif info.content.startwith('!!day'):
+  elif info.content.startswith('!!day'):
     server.reply(info, '今天是这个服务器开服的第' + getday() + '天')
 
 
