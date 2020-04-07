@@ -88,6 +88,7 @@ def on_info(server, info):
                 if plugin in pluginlist:
                     if copy_plugin(plugin):
                         text = '§aPlugin %s installed successfully!' % plugin
+                        server.excute('!!MCDR reload plugin')
                     else:
                         text = '§cPlugin %s installed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -105,12 +106,13 @@ def on_info(server, info):
                 if plugin in pluginlist:
                     if remove_plugin(plugin):
                         text = '§aPlugin %s removed successfully!' % plugin
-                        text += '§cConsider add \'.py\' behind the name?'
+                        server.excute('!!MCDR reload plugin')
                     else:
                         text = '§cPlugin %s removed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
                 else:
                     text = '§cPlugin %s not found!' % plugin
+                    text += '§cConsider add \'.py\' behind the name?'
                 server.reply(info, text)
 
         elif info.content == '!!MCDP update':
@@ -119,13 +121,13 @@ def on_info(server, info):
                 '%b %d %H:%M')
             server.reply(info, '§7Updated\n. Last commit at' +
                          committime + '\n:' + fetchinfo.commit.message)
-            server.excute('!!MCDR reload plugin')
         elif info.content == '!!MCDP upgrade':
             pluginlist = os.listdir(path)
             for plugin in pluginlist:
                 if plugin.endswith('.py'):
                     copy_plugin(plugin)
             server.say('§7Plugins upgraded.')
+            server.excute('!!MCDR reload plugin')
         else:
             text = '§7!!MCDP§r: Show this message\n'
             text += '§7!!MCDP list§r: List the plugins\n'
