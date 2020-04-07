@@ -10,21 +10,12 @@ def on_load(server, old_module):
     global startday
     pluginconfig = config.Config(constant.CONFIG_FILE)
     pluginconfig.read_config()
-    startday = pluginconfig['startday']
+    startday = datetime.datetime.strptime(pluginconfig['startday'], '%Y-%m-%d')
 
 
 def on_info(server, info):
   global startday
-  if info.content.startswith('!!day set'):
-    try:
-      newstartstr = re.match(r'!!day set (\S*)', info.content).groups()[0]
-      newstartday = datetime.datetime.strptime(newstartstr, '%Y-%m-%d')
-    except:
-      server.reply(info, '§cPlease enter start day as yyyy-mm-dd')
-    else:
-      startday = newstartday
-      server.reply(info, '§7Start day set as %s' % newstartstr)
-  elif info.content.startswith('!!day'):
+  if info.content.startswith('!!day'):
     server.reply(info, '今天是这个服务器开服的第' + getday() + '天')
 
 
