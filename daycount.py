@@ -2,15 +2,19 @@
 import copy
 import datetime
 import re
+from utils import config, constant
 
-startday = datetime.datetime.strptime('2018-11-09', '%Y-%m-%d')
+startday = None
 
-def onServerInfo(server, info):
-  if info.isPlayer == 1:
-    if info.content.startswith('!!day'):
-      server.say('今天是这个服务器开服的第' + getday() + '天')
+def on_load(server, old_module):
+    global startday
+    pluginconfig = config.Config(constant.CONFIG_FILE)
+    pluginconfig.read_config()
+    startday = pluginconfig['startday']
+
 
 def on_info(server, info):
+  global startday
   if info.content.startswith('!!day set'):
     try:
       newstartstr = re.match(r'!!day set (\S*)', info.content).groups()[0]
@@ -20,10 +24,9 @@ def on_info(server, info):
     else:
       startday = newstartday
       server.reply(info, '§7Start day set as %s' % newstartstr)
-  else:
-    info2 = copy.deepcopy(info)
-    info2.isPlayer = info2.is_player
-    onServerInfo(server, info2)
+  elif info.content.startwith('!!day'):
+    server.reply(info, '今天是这个服务器开服的第' + getday() + '天')
+
 
 def getday():
   now = datetime.datetime.now()
