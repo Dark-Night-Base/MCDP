@@ -63,7 +63,7 @@ def on_load(server, old_module):
     except:
         server.logger.info(
             'Repo \'plugins/MCDP\' is bare, tring to clone one...')
-        repo.clone_from('https://github.com/Dark-Night-Base/MCDP.git', path)
+        repo = Repo.clone_from('https://github.com/Dark-Night-Base/MCDP.git', path)
     else:
         repo.remote().pull()
 
@@ -130,4 +130,4 @@ def on_info(server, info):
             text += '§7!!MCDP remove [plugin]§r: Remove the plugins\n'
             text += '§7!!MCDP update§r: Update list of available plugins\n'
             text += '§7!!MCDP upgrade§r: Upgrade the plugins'
-            server.tell(info.player, text)
+            server.reply(info, text)
