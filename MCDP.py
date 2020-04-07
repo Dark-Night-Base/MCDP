@@ -93,6 +93,7 @@ def on_info(server, info):
                         text += '§cConsider add \'.py\' behind the name?'
                 else:
                     text = '§cPlugin %s not found!' % plugin
+                    text += '§cConsider add \'.py\' behind the name?'
                 server.reply(info, text)
         elif info.content.startswith('!!MCDP remove'):
             try:
@@ -104,6 +105,7 @@ def on_info(server, info):
                 if plugin in pluginlist:
                     if remove_plugin(plugin):
                         text = '§aPlugin %s removed successfully!' % plugin
+                        text += '§cConsider add \'.py\' behind the name?'
                     else:
                         text = '§cPlugin %s removed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
