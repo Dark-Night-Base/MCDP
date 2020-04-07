@@ -18,6 +18,7 @@ def on_info(server, info):
     except:
       server.reply(info, '§cPlease enter start day as yyyy-mm-dd')
     else:
+      startday = newstartday
       server.reply(info, '§7Start day set as %s' % newstartstr)
   else:
     info2 = copy.deepcopy(info)
