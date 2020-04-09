@@ -140,5 +140,5 @@ def on_info(server, info):
             text += '§7!!MCDP install [plugin]§r: Install or upgrade plugins\n'
             text += '§7!!MCDP remove [plugin]§r: Remove the plugins\n'
             text += '§7!!MCDP update§r: Update list of available plugins\n'
-            text += '§7!!MCDP upgrade§r: Upgrade the plugins'
+            text += '§7!!MCDP upgrade§r: Upgrade the installed plugins'
             server.reply(info, text)
