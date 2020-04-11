@@ -1,7 +1,13 @@
 # MCDP
+
 MCDP Can Download Plugins
 
-⚠️️ MCDP does NOT support python2 and MCDaemon! Currently only supports [MCDReforged](https://github.com/Fallen-Breath/MCDReforged).
+⚠️️ MCDP does NOT support python2 and MCDaemon! Currently only supports 
+[MCDReforged](https://github.com/Fallen-Breath/MCDReforged). 
+
+⚠️ MCDP does NOT support plugins with folders, 
+but these whose folders have the same name with the plugin, 
+such as `hello.py` with folder `hello/`, are supported.
 
 ## How to use
 
@@ -26,9 +32,12 @@ Then put `MCDP.py` in `plugins/`, others can be done inside the game
 
 ## How to contribute
 
-Click [here](https://github.com/Dark-Night-Base/MCDP/compare) to start a Pull request!
+Click [here](https://github.com/Dark-Night-Base/MCDP/compare) to raise a pull request!
 
 Remember: you'd better to merge into branch [dev](https://github.com/Dark-Night-Base/MCDP/tree/dev) if your plugin has not been fully tested yet.
+
+💡️ We encourage write configurations inside the `MCDReforged/config.yml` 
+instead of making another config file for a single plugin.
 
 ## Plugin List
 
@@ -39,9 +48,11 @@ Remember: you'd better to merge into branch [dev](https://github.com/Dark-Night-
 | Name                                                   | Maintainer                                           | Function                                         |Updated Time|
 | ------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------ | ---------- |
 | [Here](https://github.com/TISUnion/Here)               | [Fallen_Breath](https://github.com/Fallen-Breath)    | Boardcast your position and high light yourself  | 2020-04-07 |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)       | [Fallen_Breath](https://github.com/Fallen-Breath)    | Welcome message and server list on player joined | 2020-04-07 |
 | [daycount](https://github.com/Dark-Night-Base/daycount)| [Dark-Night-Base](https://github.com/Dark-Night-Base)| `!!day` give you the number of day passed        | 2020-04-07 |
 | [Calculator](https://github.com/TISUnion/Calculator)   | [Fallen_Breath](https://github.com/Fallen-Breath)    | In game calculator                               | 2020-04-07 |
+| [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@` | 2020-04-09 |
+| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                    | 2020-04-09 |
+<!-- | [joinMOTD](https://github.com/TISUnion/joinMOTD)       | [Fallen_Breath](https://github.com/Fallen-Breath)    | Welcome message and server list on player joined | 2020-04-07 | -->
 
 <!-- #### Outside -->
 
