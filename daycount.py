@@ -8,7 +8,7 @@ startday = None
 
 def on_load(server, old_module):
     global startday
-    pluginconfig = config.Config(constant.CONFIG_FILE)
+    pluginconfig = config.Config(server, constant.CONFIG_FILE)
     pluginconfig.read_config()
     startday = datetime.datetime.strptime(str(pluginconfig['startday']), '%Y-%m-%d')
 
