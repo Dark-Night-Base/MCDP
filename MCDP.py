@@ -93,7 +93,7 @@ def on_info(server, info):
             else:
                 if plugin in pluginlist:
                     if copy_plugin(plugin):
-                        text = '§aPlugin %s installed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
+                        text = '§7Plugin %s installed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s installed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -111,7 +111,7 @@ def on_info(server, info):
             else:
                 if plugin in installed:
                     if remove_plugin(plugin):
-                        text = '§aPlugin %s removed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
+                        text = '§7Plugin %s removed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s removed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -124,8 +124,8 @@ def on_info(server, info):
             fetchinfo = repo.remote().pull()[0]
             committime = fetchinfo.commit.authored_datetime.strftime(
                 '%b %d %H:%M')
-            server.reply(info, '§7Updated. Last commit at' +
-                         committime + ':\n' + fetchinfo.commit.message)
+            server.reply(info, '§7Updated. Last commit at ' +
+                         committime + ':\n§7' + fetchinfo.commit.message)
 
         elif info.content == '!!MCDP upgrade':
             for plugin in installed:
