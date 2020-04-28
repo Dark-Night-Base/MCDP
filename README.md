@@ -48,20 +48,22 @@ instead of making another config file for a single plugin.
 | Name                                                   | Maintainer                                           | Function                                         |Updated Time|
 | ------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------ | ---------- |
 | [Here](https://github.com/TISUnion/Here)               | [Fallen_Breath](https://github.com/Fallen-Breath)    | Boardcast your position and high light yourself  | 2020-04-07 |
-| [daycount](https://github.com/Dark-Night-Base/daycount)| [Dark-Night-Base](https://github.com/Dark-Night-Base)| `!!day` give you the number of day passed        | 2020-04-07 |
+| [daycount](https://github.com/Dark-Night-Base/daycount)| [Dark-Night-Base](https://github.com/Dark-Night-Base)| `!!day` give you the number of day passed        | 2020-04-28 |
 | [Calculator](https://github.com/TISUnion/Calculator)   | [Fallen_Breath](https://github.com/Fallen-Breath)    | In game calculator                               | 2020-04-07 |
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@` | 2020-04-09 |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                    | 2020-04-09 |
+| [Timer](https://github.com/Da-Dog/MCDR_Timer)            | [Da_Dog](https://github.com/Da-Dog)           | A count down timer and stopwatch     | 2020-04-16 |
+| [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click | 2020-04-16 |
 <!-- | [joinMOTD](https://github.com/TISUnion/joinMOTD)       | [Fallen_Breath](https://github.com/Fallen-Breath)    | Welcome message and server list on player joined | 2020-04-07 | -->
 
-<!-- #### Outside -->
+#### Outside
 
-<!-- | Name                                                        | Maintainer                                        | Function                                                                      |Updated Time| -->
+| Name                                                        | Maintainer                                        | Function                                                                      |Updated Time|
+| ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- | ---------- |
+| [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | a PCRC plugin                                                                 | 2020-04-09 |
 <!-- | ----------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------- | ---------- | -->
 <!-- | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) | -->
 <!-- | [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server                      | -->
-<!-- | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | a PCRC plugin                                                                 | -->
-
 ### Server Control
 
 | Name                                                        | Maintainer                                        | Function                                            |Updated Time|
@@ -83,3 +85,4 @@ instead of making another config file for a single plugin.
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)             | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker          | 2020-04-07 |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)        | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) | 2020-04-07 |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)                    | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                       | 2020-04-09 |
+| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)       | A plugin helps you sync/turn on your mirror server, for building design and redstone debug | 2020-04-26 |
