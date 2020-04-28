@@ -7,7 +7,6 @@ from git import Repo
 
 path = ''
 repo = None
-pluginlist = []
 
 
 def copy_plugin(plugin: str) -> bool:
@@ -63,21 +62,28 @@ def on_load(server, old_module):
     except:
         server.logger.info(
             'Repo \'plugins/MCDP\' is bare, tring to clone one...')
-        repo = Repo.clone_from('https://github.com/Dark-Night-Base/MCDP.git', path)
+        repo = Repo.clone_from(
+            'https://github.com/Dark-Night-Base/MCDP.git', path)
     else:
         repo.remote().pull()
 
 
 def on_info(server, info):
-    global path, repo, pluginlist
+    global path, repo
     if re.match('!!MCDP', info.content) != None:
+        pluginlist = os.listdir(path)
+        installed = os.listdir(path + '../')
+
         if info.content == '!!MCDP list':
-            pluginlist = os.listdir(path)
-            text = 'Listing...\n'
+            text = 'Listing available plugins...\n'
             for plugin in pluginlist:
                 if plugin.endswith('.py'):
-                    text += '§2' + plugin + '\n'
+                    if plugin in installed:
+                        text += '§2' + plugin + ': installed\n'
+                    else:
+                        text += '§7' + plugin + '\n'
             server.reply(info, text)
+
         elif info.content.startswith('!!MCDP install'):
             try:
                 plugin = re.match(r'!!MCDP install (\S*)',
@@ -87,7 +93,7 @@ def on_info(server, info):
             else:
                 if plugin in pluginlist:
                     if copy_plugin(plugin):
-                        text = '§aPlugin %s installed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
+                        text = '§7Plugin %s installed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s installed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -95,6 +101,7 @@ def on_info(server, info):
                     text = '§cPlugin %s not found!' % plugin
                     text += '§cConsider add \'.py\' behind the name?'
                 server.reply(info, text)
+
         elif info.content.startswith('!!MCDP remove'):
             try:
                 plugin = re.match(r'!!MCDP remove (\S*)',
@@ -102,9 +109,9 @@ def on_info(server, info):
             except:
                 server.reply(info, '§cPlease specify plugin!')
             else:
-                if plugin in pluginlist:
+                if plugin in installed:
                     if remove_plugin(plugin):
-                        text = '§aPlugin %s removed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
+                        text = '§7Plugin %s removed successfully! Run §r!!MCDR reload plugin§7 to reload' % plugin
                     else:
                         text = '§cPlugin %s removed failed!\n' % plugin
                         text += '§cConsider add \'.py\' behind the name?'
@@ -117,19 +124,21 @@ def on_info(server, info):
             fetchinfo = repo.remote().pull()[0]
             committime = fetchinfo.commit.authored_datetime.strftime(
                 '%b %d %H:%M')
-            server.reply(info, '§7Updated. Last commit at' +
-                         committime + ':\n' + fetchinfo.commit.message)
+            server.reply(info, '§7Updated. Last commit at ' +
+                         committime + ':\n§7' + fetchinfo.commit.message)
+
         elif info.content == '!!MCDP upgrade':
-            pluginlist = os.listdir(path)
-            for plugin in pluginlist:
+            for plugin in installed:
                 if plugin.endswith('.py'):
                     copy_plugin(plugin)
-            server.say('§7Plugins upgraded. Run §r!!MCDR reload plugin§7 to reload')
+            server.say(
+                '§7Plugins upgraded. Run §r!!MCDR reload plugin§7 to reload')
+
         else:
             text = '§7!!MCDP§r: Show this message\n'
             text += '§7!!MCDP list§r: List the plugins\n'
             text += '§7!!MCDP install [plugin]§r: Install or upgrade plugins\n'
             text += '§7!!MCDP remove [plugin]§r: Remove the plugins\n'
             text += '§7!!MCDP update§r: Update list of available plugins\n'
-            text += '§7!!MCDP upgrade§r: Upgrade the plugins'
+            text += '§7!!MCDP upgrade§r: Upgrade the installed plugins'
             server.reply(info, text)
