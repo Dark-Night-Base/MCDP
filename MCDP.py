@@ -66,6 +66,7 @@ def on_load(server, old_module):
             'https://github.com/Dark-Night-Base/MCDP.git', path)
     else:
         repo.remote().pull()
+    server.add_help_message('!!MCDP', 'Manage plugins via git')
 
 
 def on_info(server, info):

@@ -36,7 +36,7 @@ def get_FileAccessTime(filePath: str) -> float:
 
 def on_load(server, old_module):
     global path, work_dir, firsttime
-    pluginconfig = config.Config(server, constant.CONFIG_FILE)
+    pluginconfig = config.Config(constant.CONFIG_FILE)
     pluginconfig.read_config()
     work_dir = pluginconfig['working_directory']
     path = os.getcwd()  # MCDReforged/
@@ -53,6 +53,7 @@ def on_load(server, old_module):
             'Directory \'back-up/auto\' not found, trying to create one...')
         os.mkdir(path + '/back-up/auto')
         firsttime = True
+    server.add_help_message('!!autobk', 'Autoatically backup server files')
 
 
 def on_info(server, info):
