@@ -1,0 +1,7 @@
+requests>=2.22.0
+cryptography>=2.8
+future>=0.18.2
+GitPython>=3.1.12
+mcdbot>=0.4.7
+PyYAML>=5.3.1
+simpleeval>=0.9.10
