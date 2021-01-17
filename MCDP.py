@@ -14,18 +14,20 @@ PLUGIN_METADATA = {
     "link": "https://github.com/Dark-Night-Base/MCDP"
 }
 
-path = ""
+path = ""  # MCDReforged/plugins/MCDP/
 repo = None
 
 
 def copy_plugin(plugin: str) -> bool:
     "Copy a plugin and its folder. Return True if succeeded, otherwise return False"
+    global path
     if not plugin.endswith(".py"):
         return False
     try:
         shutil.copy(path + plugin, path + "../")
     except:
         return False
+
     try:  # copy folder
         os.listdir(path + plugin[0:-3])
     except:
@@ -38,21 +40,33 @@ def copy_plugin(plugin: str) -> bool:
         else:
             shutil.rmtree(path + "../" + plugin[0:-3])
         shutil.copytree(path + plugin[0:-3], path + "../" + plugin[0:-3])
-        return True
+
+    return True
 
 
 def remove_plugin(plugin: str) -> bool:
     "Remove a plugin and its folder. Return True if succeeded, otherwise return False"
+    global path
     if not plugin.endswith(".py"):
         return False
     try:
         os.remove(path + "../" + plugin)
     except:
         return False
+
     try:  # remove folder
         shutil.rmtree(path + "../" + plugin[0:-3])
     except:
         pass
+
+    # remove config/*.yml,*.yaml,*.json
+    attrList = [".yml", ".yaml", ".json"]
+    for attr in attrList:
+        configFile = path + "../../config/" + plugin[0:-3] + attr
+        if os.path.isfile(configFile):
+            os.remove(configFile)
+            break
+
     return True
 
 
@@ -73,6 +87,7 @@ def on_load(server, old_module):
             "Repo \"plugins/MCDP\" is bare, tring to clone one...")
         repo = Repo.clone_from(
             "https://github.com/Dark-Night-Base/MCDP.git", path)
+        # repo.git.checkout("-b", "dev", "origin/dev")
     else:
         repo.remote().pull()
     server.register_help_message("!!MCDP", "Manage plugins via git")
