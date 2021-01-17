@@ -69,6 +69,7 @@ instead of making another config file for a single plugin.
 | Name                                                        | Maintainer                                        | Function                                            |Updated Time|
 | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- | ---------- |
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server | 2021-01-15 |
+| [CrashRestart](https://github.com/MCDReforged-Plugins/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin to restart the server after server crashes. Maximum allowance for crashes is configurable | 2021-01-15 |
 
 <!-- ### Command Helper -->
 
