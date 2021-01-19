@@ -54,6 +54,7 @@ instead of making another config file for a single plugin.
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | a plugin for showing someone's time spent on working fish  | 2021-01-16 |
 | [Timer](https://github.com/Da-Dog/MCDR_Timer)            | [Da_Dog](https://github.com/Da-Dog)           | A count down timer and stopwatch     | 2020-04-16 |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click | 2020-04-16 |
+| [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager | 2021-01-19 |
 <!-- | [joinMOTD](https://github.com/TISUnion/joinMOTD)       | [Fallen_Breath](https://github.com/Fallen-Breath)    | Welcome message and server list on player joined | 2020-04-07 | -->
 
 #### Outside
